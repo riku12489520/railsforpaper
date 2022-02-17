@@ -1,0 +1,2 @@
+web: rails server -p 8091
+webpack: webpack-dev-server

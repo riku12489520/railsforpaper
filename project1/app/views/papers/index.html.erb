@@ -1,0 +1,35 @@
+
+<div class="page">
+  <h1>舊振南食品股份有限公司</h1>
+  <h2>留切紀錄表(P2517)</h2>
+  <p class="date">年 月 日</p>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th class="stage1" colspan="2">第一階段</th>
+        <th colspan="1">處理方式</th>
+        <th class="stage2" colspan="2">第二階段</th>
+        <th colspan="1">處理方式</th>
+        <th class="stage3" colspan="2">第三階段</th>
+        <th colspan="1">處理方式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @papers.each do |t|  %>   
+      <tr>
+        <td class="item"><%= t.item %></td>
+        <% t.stages.each do |s| %>
+          <td class="num">數量 <p><%= s.paper_id %></p></td>
+          <td>
+          <%= score_for_checked(t.score)%>
+          <p class="reason" style="text-align: start;">原因</p>
+          </td>
+          <td class="process"><%= t.process %></td>
+        <% end %>
+      </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+</div>

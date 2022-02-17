@@ -1,0 +1,88 @@
+
+	@page {
+		size: A4 landscape;
+		margin: 0.5cm;
+	}
+
+	@media print {
+		.page {
+			position: relative;
+			/* height: 210mm;
+            width: 297mm; */
+			margin: 0;
+		}
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-size: 12pt;
+		font-family: sans-serif, DFKai-sb;
+	}
+
+	.page {
+		margin: 0.5cm;
+	}
+
+	h1,
+	h2,
+	p {
+		text-align: center;
+		margin-block-start: 1px;
+		margin-block-end: 1px;
+	}
+
+	/* table */
+	table,
+	th,
+	td {
+		border: 1px solid #000;
+		border-collapse: collapse;
+		font-size: 10pt;
+		font-weight: initial;
+		min-width: 50px;
+	}
+
+	table {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+
+	.num {
+		text-align: center;
+		vertical-align: top;
+	}
+
+	.num p {
+		margin-top: 8px;
+	}
+
+	.left-table p {
+		text-align: start;
+	}
+
+	.process {
+		min-width: 150px;
+	}
+
+	/* content */
+	.date {
+		text-align: right;
+	}
+
+	.supervisor {
+		width: 45%;
+		float: left;
+	}
+
+	.recorder {
+		float: left;
+	}
+
+	.version {
+		float: right;
+	}
