@@ -1,7 +1,8 @@
 class PapersController < ApplicationController
   def index
     @papers = Paper.all
-    @paper = Paper.find_by(params[:id])
+    @paper = Paper.find_by(id: 2)
+    @stages = Stage.all
   end
 
   def new

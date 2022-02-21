@@ -1,0 +1,65 @@
+<div class="page">
+  <h1>舊振南食品股份有限公司</h1>
+  <h2>餡料製程管制記錄表(P2514)</h2>
+  <span class="date"><%= date_format(@paper.created_at, "date")%></span>
+  <table>
+    <thead>
+      <tr class="row1">
+        <th colspan="1" rowspan="3">品項</th>
+        <th class="soak" colspan="2">浸泡</th>
+        <th class="steam" colspan="3">蒸煮</th>
+        <th class="fry" colspan="3">炒肉</th>
+        <th class="stew" colspan="4">滷煮</th>
+        <th class="stir" colspan="3">攪拌</th>
+        <th class="boil" colspan="1">熬煮</th>
+      </tr>
+      <tr class="row2">
+        <th class="time" colspan="2">時間</th>
+        <th class="time" colspan="2">時間</th>
+        <th colspan="1" rowspan="2">中心<br />溫度<br />(℃)</th>
+        <th class="time" colspan="2">時間</th>
+        <th colspan="1" rowspan="2">中心<br />溫度<br />(℃)</th>
+        <th class="time" colspan="2">時間</th>
+        <th colspan="1" rowspan="2">中心<br />溫度<br />(℃)</th>
+        <th colspan="1" rowspan="2">鹽度%</th>
+        <th class="time" colspan="2">時間</th>
+        <th colspan="1" rowspan="2">表面<br />溫度<br />(℃)</th>
+        <th rowspan="2">溫度<br />(℃)</th>
+      </tr>
+      <tr class="row3">
+      <% 5.times do%>
+        <th>起</th>
+        <th>迄</th>
+      <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @papers.each do |t|%>
+      <tr>
+        <td class="item"><%= t.item%></td>
+        <td class="start"><%= date_format(t.created_at, "time")%></td>
+        <td class="end"><%= date_format(t.updated_at, "time")%></td>
+        <td class="start"><%= date_format(t.created_at, "time")%></td>
+        <td class="end"><%= date_format(t.updated_at, "time")%></td>
+        <td class="center-temp"><%= t.id%></td>
+        <td class="start"><%= date_format(t.created_at, "time")%></td>
+        <td class="end"><%= date_format(t.updated_at, "time")%></td>
+        <td class="center-temp"><%= t.id%></td></td>
+        <td class="start"><%= date_format(t.created_at, "time")%></td>
+        <td class="end"><%= date_format(t.updated_at, "time")%></td>
+        <td class="center-temp"><%= t.id%></td></td>
+        <td class="salinity"><%= t.id%></td></td>
+        <td class="start"><%= date_format(t.created_at, "time")%></td>
+        <td class="end"><%= date_format(t.updated_at, "time")%></td>
+        <td class="surface-temp"><%= t.id%></td>
+        <td class="temp"><%= t.id%></td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="sign">
+    <span class="supervisor">單位主管:<%= @paper.item %></span>
+    <span class="recorder">填表人:<%= @paper.item %></span>
+    <span class="version">Rev.1.0</span>
+  </div>
+</div>

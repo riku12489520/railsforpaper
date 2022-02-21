@@ -1,0 +1,93 @@
+<div class="page">
+  <h1>舊振南食品股份有限公司</h1>
+  <h2>包裝記錄表(P2503)</h2>
+  <p class="date">日期：<%= date_format(@paper.created_at, "date")%></p>
+  <p class="detectionMachine">金檢機&nbsp<%= @paper.id%>&nbsp號</p>
+  <table>
+    <thead>
+      <tr class="th-row1">
+        <th colspan="1" rowspan="3">品項</th>
+        <th colspan="1" rowspan="3">機台</th>
+        <th class="sealer" colspan="5">封口機</th>
+        <th class="packing-machine" colspan="4" rowspan="2">連續式包裝機</th>
+        <th class="metal-detection" colspan="7" rowspan="2">金屬檢測</th>
+        <th class="exterier-inspection" colspan="4" rowspan="2">外觀與封口密合度檢查</th>
+        <th class="EXP" colspan="1" rowspan="3">有效日期</th>
+        <th class="operater" colspan="1" rowspan="3">操作人員<br />簽名</th>
+        <th class="supervisor" colspan="1" rowspan="3">單位主管<br />簽名</th>
+        <th class="QC" colspan="1" rowspan="3">品管人員<br />抽測簽名</th>
+      </tr>
+      <tr class="th-row2">
+        <th class="time" colspan="2">封口</th>
+        <th class="time" colspan="2">預熱時間</th>
+        <th colspan="1">下壓時間</th>
+      </tr>
+      <tr class="th-row3">
+        <th>指針</th>
+        <th>溫度(℃)</th>
+        <th>時間(秒)</th>
+        <th>指示燈閃爍</th>
+        <th>指示燈熄滅後 1-2秒</th>
+        <th>包裝袋</th>
+        <th>速度(個/分)</th>
+        <th>內/外輪溫度(℃)</th>
+        <th>上/下切刀溫度(℃)</th>
+        <th>檢測<br />時間</th>
+        <th>首件檢查</th>
+        <th>作業中</th>
+        <th>維修後</th>
+        <th>鐵<br />2.0<br />mm</th>
+        <th>非鐵2.0<br />mm</th>
+        <th>不鏽鋼2.0<br />mm</th>
+        <th>首件檢查</th>
+        <th>作業中</th>
+        <th>日期清晰正確</th>
+        <th>色澤</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @papers.each do |t|%>
+      <tr class="td-row1">
+        <td class="item" rowspan="2"><%= t.item%></td>
+        <td class="machine" rowspan="2"><%= t.id%></td>
+        <td class="pointer" rowspan="2"><%= t.id%></td>
+        <td class="temp" rowspan="2"><%= t.id%></td>
+        <td class="time" rowspan="2"><%= t.id%></td>
+        <td class="light-flicker" rowspan="2"><%= t.id%></td>
+        <td class="light-off" rowspan="2"><%= t.id%></td>
+        <td class="packing-bag" rowspan="2"><%= t.id%></td>
+        <td class="speed" rowspan="2"><%= t.id%></td>
+        <td class="wheel-temp" rowspan="2"><%= t.id%></td>
+        <td class="cutter-temp" rowspan="2"><%= t.id%></td>
+        <td class="detection-time start" rowspan="1">起<%= date_format(t.updated_at, "time")%></td>
+        <td class="first-inspect" rowspan="2"><%= t.id%></td>
+        <td class="working" rowspan="2"><%= t.id%></td>
+        <td class="repaired" rowspan="2"><%= t.id%></td>
+        <td class="iron" rowspan="2"><%= t.id%></td>
+        <td class="non-ferrous" rowspan="2"><%= t.id%></td>
+        <td class="stainless-steel" rowspan="2"><%= t.id%></td>
+        <td class="first-inspect" rowspan="2"><%= t.id%></td>
+        <td class="working" rowspan="2"><%= t.id%></td>
+        <td class="date-correct" rowspan="2"><%= t.id%></td>
+        <td class="color" rowspan="2"><%= t.id%></td>
+        <td class="exp-date" rowspan="2"><%= t.id%></td>
+        <td class="operator-sign" rowspan="2"><%= t.id%></td>
+        <td class="supervisor-sign" rowspan="2"><%= t.id%></td>
+        <td class="qc-sign" rowspan="2"><%= t.id%></td>
+      </tr>
+      <tr class="td-row2">
+        <td class="detection-time end" rowspan="1">迄<%= date_format(t.updated_at, "time")%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="footer">
+    <p class="note">
+      備註：1.管制基準：依現場工作指導書之標準。<br />
+      2.檢測頻率：中椪類：(平常檔期)次/每品項；(大檔期)次/3車；酥皮、油皮、餅皮、米吐司、麵包：次/每小時/每規格；<br />
+      脫氧產品：次/每品項/每規格；小鳳：次/4車；若重新開機時必須重新檢測；正常：打ˇ，異常：X。<br />
+      3.單位主管：次/≦1小時，定期確認；品管人員：次/≦3小時，進行抽檢。
+    </p>
+    <span>Rev.1.0</span>
+  </div>
+</div>

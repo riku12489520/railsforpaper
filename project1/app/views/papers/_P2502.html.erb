@@ -1,0 +1,43 @@
+<div class="page">
+		<h1>舊振南食品股份有限公司</h1>
+		<h2>烤焙製程管制記錄表-三層爐(P2502)</h2>
+		<p class="date"><%= date_format(@paper.created_at)%></p>
+		<table>
+			<thead>
+				<tr>
+					<th colspan="1" rowspan="2">車數</th>
+					<th colspan="1" rowspan="2">機器別</th>
+					<th colspan="1">時間</th>
+					<th colspan="1">溫度(上火)</th>
+					<th colspan="1">溫度(下火)</th>
+					<th colspan="1">時間</th>
+					<th colspan="1">溫度(上火)</th>
+					<th colspan="1">溫度(下火)</th>
+				</tr>
+			</thead>
+			<tbody>
+        <% @papers.each do |t|  %>   
+        <tr classs="td-row1">
+        <td rowspan="2" class="carId"><%= t.item %></td>
+        <td rowspan="2" class="machine"><%= t.item %></td>
+        <% t.stages.each do |s| %>
+					<td class="time-start"><span>起</span><%= date_format(s.created_at, "time")%></td>
+					<td rowspan="2"><span><%= s.toptemp%></span>℃</td>
+          <td rowspan="2"><span><%= s.downtemp%></span>℃</td>
+        <% end %>
+        </tr>
+				<tr class="td-row2">
+        <% t.stages.each do |s| %>
+					<td class="time-end"><span>迄</span><%= date_format(s.updated_at, "time")%></td>
+        <% end %>
+        </tr>
+        </tr>
+        <% end %>
+			</tbody>			
+		</table>
+		<div class="sign">
+			<span class="supervisor">單位主管:<%= @paper.item %></span>
+			<span class="recorder">填表人:<%= @paper.item %></span>
+			<span class="version">Rev.1.0</span>
+		</div>
+	</div>
